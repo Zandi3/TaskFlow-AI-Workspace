@@ -62,6 +62,21 @@ export const summarizeMeeting = createServerFn({ method: "POST" })
     return result.object;
   });
 
+export const debugAi = createServerFn({ method: "POST" }).handler(async () => {
+  try {
+    const r = await generateObject({
+      model: gateway()(CHAT_MODEL),
+      schema: z.object({ summary: z.string() }),
+      prompt: "Summarise: Ana ships billing fix Friday.",
+    });
+    return { ok: true, obj: r.object };
+  } catch (e) {
+    const err = e as { message?: string; text?: string; cause?: unknown };
+    console.log("DEBUG_AI_ERR", err.message, "TEXT:", String(err.text).slice(0, 500), "CAUSE:", String(err.cause).slice(0, 500));
+    return { ok: false, message: err.message, text: String(err.text).slice(0, 500) };
+  }
+});
+
 export const generateEmail = createServerFn({ method: "POST" })
   .validator((input: unknown) =>
     z
