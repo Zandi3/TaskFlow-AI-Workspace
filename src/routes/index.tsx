@@ -5,12 +5,14 @@ import {
   CalendarClock,
   ChevronLeft,
   ClipboardList,
+  LayoutDashboard,
   Mail,
   MessagesSquare,
   Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/taskflow/ThemeToggle";
+import { Dashboard as DashboardHome } from "@/components/taskflow/Dashboard";
 import { MeetingSummarizer } from "@/components/taskflow/MeetingSummarizer";
 import { EmailGenerator } from "@/components/taskflow/EmailGenerator";
 import { TaskPlanner } from "@/components/taskflow/TaskPlanner";
@@ -39,6 +41,7 @@ export const Route = createFileRoute("/")({
 });
 
 const TABS = [
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "meeting", label: "Meeting Summarizer", icon: ClipboardList },
   { id: "email", label: "Smart Email Generator", icon: Mail },
   { id: "planner", label: "AI Task Planner", icon: CalendarClock },
@@ -48,7 +51,7 @@ const TABS = [
 type TabId = (typeof TABS)[number]["id"];
 
 function Dashboard() {
-  const [tab, setTab] = useState<TabId>("meeting");
+  const [tab, setTab] = useState<TabId>("dashboard");
   const [collapsed, setCollapsed] = useState(false);
   const active = TABS.find((t) => t.id === tab)!;
 
@@ -120,6 +123,7 @@ function Dashboard() {
         </header>
 
         <main className="surface-grid flex-1 p-5">
+          {tab === "dashboard" && <DashboardHome onNavigate={setTab} />}
           {tab === "meeting" && <MeetingSummarizer />}
           {tab === "email" && <EmailGenerator />}
           {tab === "planner" && <TaskPlanner />}
