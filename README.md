@@ -1,58 +1,61 @@
-# AI Task Flow
+# TaskFlow AI — Integrated Workplace Productivity Hub
 
-Create a complete, fully functional workplace productivity dashboard named 'TaskFlow AI' using React, Tailwind CSS, Lucide icons, and Shadcn UI.
+TaskFlow AI is a unified, AI-powered workplace operations dashboard designed to eliminate context switching and automate everyday professional workflows. Built with a modern responsive UI, the platform transforms unstructured meeting notes, rough bullets, and task backlogs into execution-ready assets.
 
-1. Layout & Theme:
+---
 
-- Dark/light mode support with a toggle.
+## 📌 Project Overview
+Modern workplace productivity is fragmented across single-purpose tools. TaskFlow AI consolidates executive communication, meeting synthesis, task prioritization, and on-demand workflow support into a single dashboard. 
 
-- Collapsible left sidebar with navigation for 4 tabs: Meeting Summarizer, Smart Email Generator, AI Task Planner, and Workplace Assistant Chatbot.
+The platform leverages structured JSON prompt engineering and streaming LLM pipelines to provide reliable, formatted outputs while enforcing human-in-the-loop validation.
 
-- Persistent top Responsible AI banner: "AI outputs are generated automatically and may contain inaccuracies. Human review is required before sending or scheduling."
+---
 
-2. Tab 1 - Meeting Notes Summarizer:
+## 🚀 Key Features
 
-- Input: Textarea for raw notes/transcripts + objective field.
+* **Meeting Notes Summarizer:** Ingests raw meeting transcripts or bullet points and extracts:
+  * A concise 2–3 sentence Executive Summary.
+  * Categorized Key Decisions.
+  * An interactive Action Items Table (`Owner`, `Task`, `Priority`, `Deadline`).
+* **Smart Email Generator:** Converts rough notes into tone-adjusted professional emails (*Formal*, *Friendly*, *Persuasive*, *Assertive*) with 3 suggested subject lines, an editable draft window, and one-click clipboard copying.
+* **AI Task Planner & Scheduler:** Applies the Eisenhower Matrix (Urgent/Important) to classify tasks and generates an optimized daily time-blocked schedule with automated workload limit tracking.
+* **Workplace Assistant Chatbot:** A streaming conversational interface with starter prompt chips designed to assist with ad-hoc workflow planning and cross-module drafting.
 
-- AI Action: Call the built-in AI gateway to parse the notes into: 1) Executive Summary, 2) Key Decisions list, 3) Action Items Table (columns: Owner, Task, Priority, Deadline).
+---
 
-- Add loading skeletons and error toasts.
+## 🛠️ Tools & Tech Stack
 
-3. Tab 2 - Smart Email Generator:
+* **Frontend Framework:** React 18, Vite, TypeScript
+* **UI & Styling:** Tailwind CSS, Shadcn UI, Lucide React Icons
+* **AI Integration:** AI SDK (`@ai-sdk/react`), Lovable AI Gateway Engine
+* **Rapid Prototyping & Backend:** Lovable.dev, Supabase Edge Functions
+* **Version Control & Hosting:** GitHub, Lovable Cloud Deploy / Vercel
 
-- Input: Key bullet points, recipient field, and a tone selector dropdown (Formal, Friendly, Persuasive, Assertive).
+---
 
-- AI Action: Generate 3 selectable subject line options, a formatted editable email draft body, and a working 'Copy to Clipboard' button with success toast.
+## 🛡️ Responsible AI & Guardrails
 
-4. Tab 3 - AI Task Planner / Scheduler:
+* **Persistent Safety Banner:** A global disclaimer visible on all screens reminding users that outputs are AI-generated and require human verification.
+* **Human-in-the-Loop:** All drafts, scheduled items, and generated action items require explicit user approval and remain fully editable.
+* **Client-Side Data Sanitization:** Input forms include client-side regex checks to detect and warn users against pasting sensitive credentials or payment data.
 
-- Input: Textarea for unorganized tasks with deadlines and an hours/day limit slider.
+---
 
-- AI Action: Categorize tasks into a 2x2 Eisenhower Matrix grid (Urgent/Important) and generate a time-blocked daily schedule table with a total hours counter.
+## ⚙️ Setup & Local Installation
 
-5. Tab 4 - Workplace Assistant Chatbot:
+1. **Clone the repository:**
+   ```bash
+   git clone (https://github.com/Zandi3/TaskFlow-AI-Workspace.git)
+   cd TaskFlow-AI-Workspace
+2. **Install dependencies:**
+   ```bash
+   npm install
+3. **Run the local development server:**
+    ```bash
+    npm run dev
+4. **Build for production:**
+   ```bash
+  npm run build
 
-- Full streaming conversational chat interface with conversation history, markdown formatting, and 3 clickable starter prompt chips ("Draft a status update", "Prioritize my day", "Summarize action items").
-
-Ensure all 4 tabs use real AI generations via Lovable's built-in AI, have responsive dual-pane desktop layouts, and include client-side warning validation if users type sensitive patterns like passwords or credit cards.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e4b5550a-8a44-4e94-85c7-2358fc8d7e7a).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+## 👥 Team & Contributor
+Zandile Zwane - Lead developer
