@@ -55,7 +55,7 @@ The platform leverages structured JSON prompt engineering and streaming LLM pipe
     npm run dev
 4. **Build for production:**
    ```bash
-  npm run build
+   npm run build
 
 ## 👥 Team & Contributor
 Zandile Zwane - Lead developer
