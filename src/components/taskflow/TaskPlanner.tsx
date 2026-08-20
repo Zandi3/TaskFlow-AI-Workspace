@@ -48,7 +48,7 @@ export function TaskPlanner() {
     }
   };
 
-  const totalHours = result ? result.schedule.reduce((sum, b) => sum + (b.hours || 0), 0) : 0;
+  const totalHours = result ? result.schedule.reduce((sum, b) => sum + (b.focus === "Break" ? 0 : b.hours || 0), 0) : 0;
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
@@ -127,7 +127,7 @@ export function TaskPlanner() {
                   Time-blocked schedule
                 </h3>
                 <Badge variant={totalHours > hours ? "destructive" : "secondary"}>
-                  {totalHours.toFixed(1)}h scheduled / {hours}h limit
+                  {totalHours.toFixed(1)}h of work / {hours}h limit
                 </Badge>
               </div>
               <div className="mt-4 overflow-x-auto rounded-lg border">
