@@ -66,8 +66,8 @@ export const debugAi = createServerFn({ method: "POST" }).handler(async () => {
   try {
     const r = await generateObject({
       model: gateway()(CHAT_MODEL),
-      schema: z.object({ summary: z.string() }),
-      prompt: "Summarise: Ana ships billing fix Friday.",
+      schema: meetingSchema,
+      prompt: "Notes: Ana ships billing fix Friday. Decided to delay mobile launch to Q4. Sam drafts comms Wed.",
     });
     return { ok: true, obj: r.object };
   } catch (e) {
