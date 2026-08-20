@@ -149,7 +149,7 @@ export function Dashboard({ onNavigate }: { onNavigate: (tab: LaunchTab) => void
                         prev.map((t) => (t.id === f.id ? { ...t, done: !t.done } : t)),
                       )
                     }
-                    className="size-4 accent-[hsl(var(--primary))]"
+                    className="size-4 accent-primary"
                   />
                   <span className={f.done ? "text-muted-foreground line-through" : ""}>{f.text}</span>
                 </label>

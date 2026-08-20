@@ -5,12 +5,14 @@ import {
   CalendarClock,
   ChevronLeft,
   ClipboardList,
+  LayoutDashboard,
   Mail,
   MessagesSquare,
   Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/taskflow/ThemeToggle";
+import { Dashboard as DashboardHome } from "@/components/taskflow/Dashboard";
 import { MeetingSummarizer } from "@/components/taskflow/MeetingSummarizer";
 import { EmailGenerator } from "@/components/taskflow/EmailGenerator";
 import { TaskPlanner } from "@/components/taskflow/TaskPlanner";
